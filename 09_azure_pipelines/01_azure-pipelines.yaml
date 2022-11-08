@@ -4,6 +4,14 @@ trigger: none
 pool:
   vmImage: ubuntu-latest
 
+schedules:
+- cron: 0 0 */1 * * # cron syntax defining a schedule
+  displayName: Destroy-Resources # friendly name given to a specific schedule
+  # branches:
+    # include: [ string ] # which branches the schedule applies to
+    # exclude: [ string ] # which branches to exclude from the schedule
+  always: false # whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run. The default is false.
+
 variables:
   acr_name: contosoteam7
   tag: 1.0.0-$(Build.BuildId)
